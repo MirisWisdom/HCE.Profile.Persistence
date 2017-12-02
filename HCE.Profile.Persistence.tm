@@ -361,7 +361,7 @@
   of players in a self-hosted server. The selected value is stored in an
   uint8 variable.
 
-  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|2|2|1|1|cell-row-span|3>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|5|5|1|1|cell-row-span|1>|<cwith|5|5|1|1|cell-col-span|2>|<cwith|6|6|1|1|cell-row-span|1>|<cwith|6|6|1|1|cell-col-span|2>|<table|<row|<cell|Category>|<cell|Type>|<cell|Value>>|<row|<cell|DSL>|<cell|Poor>|<cell|0x1>>|<row|<cell|>|<cell|Normal>|<cell|0x2>>|<row|<cell|>|<cell|Best>|<cell|0x3>>|<row|<cell|T1/LAN>|<cell|>|<cell|0x4>>|<row|<cell|56k>|<cell|>|<cell|0x0>>>>>
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|2|2|1|1|cell-row-span|3>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|5|5|2|2|cell-row-span|1>|<cwith|5|5|2|2|cell-col-span|1>|<cwith|6|6|2|2|cell-row-span|1>|<cwith|6|6|2|2|cell-col-span|1>|<cwith|5|5|1|1|cell-row-span|2>|<cwith|5|5|1|1|cell-col-span|1>|<cwith|5|5|1|1|cell-valign|c>|<table|<row|<cell|Category>|<cell|Type>|<cell|Value>>|<row|<cell|DSL>|<cell|Poor>|<cell|0x1>>|<row|<cell|>|<cell|Normal>|<cell|0x2>>|<row|<cell|>|<cell|Best>|<cell|0x3>>|<row|<cell|~>|<cell|T1/LAN>|<cell|0x4>>|<row|<cell|>|<cell|56k>|<cell|0x0>>>>>
 
   <subsection|Connection Ports>
 
@@ -392,12 +392,12 @@
 
   <subsection|Offsets>
 
-  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|4|4|2|2|cell-row-span|2>|<cwith|4|4|2|2|cell-col-span|1>|<cwith|2|2|2|2|cell-row-span|2>|<cwith|2|2|2|2|cell-col-span|1>|<cwith|2|2|1|1|cell-row-span|4>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|2|2|2|2|cell-valign|c>|<cwith|4|4|2|2|cell-valign|c>|<cwith|6|6|1|1|cell-row-span|1>|<cwith|6|6|1|1|cell-col-span|3>|<table|<row|<cell|Option>|<cell|Sections>|<cell|Variables>|<cell|Address>>|<row|<cell|Connection
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|4|4|2|2|cell-row-span|2>|<cwith|4|4|2|2|cell-col-span|1>|<cwith|2|2|2|2|cell-row-span|2>|<cwith|2|2|2|2|cell-col-span|1>|<cwith|2|2|1|1|cell-row-span|4>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|2|2|2|2|cell-valign|c>|<cwith|4|4|2|2|cell-valign|c>|<cwith|6|6|1|1|cell-row-span|1>|<cwith|6|6|1|1|cell-col-span|1>|<table|<row|<cell|Option>|<cell|Sections>|<cell|Variables>|<cell|Address>>|<row|<cell|Connection
   Ports>|<cell|Server>|<cell|x / (2 ^ 8)>|<cell|0x00001003>>|<row|<cell|>|<cell|>|<cell|x
   % (2 ^ 8)>|<cell|0x00001002>>|<row|<cell|>|<cell|Client>|<cell|x / (2 ^
   8)>|<cell|0x00001005>>|<row|<cell|>|<cell|>|<cell|x % (2 ^
   8)>|<cell|0x00001004>>|<row|<cell|Connection
-  Types>|<cell|>|<cell|>|<cell|0x00000FC0>>>>>
+  Types>|<cell|~>|<cell|Type>|<cell|0x00000FC0>>>>>
 </body>
 
 <\initial>
