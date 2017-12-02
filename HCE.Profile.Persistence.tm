@@ -32,13 +32,11 @@
   The width and height will each be represented by two unsigned short
   variables, A & B, whose values are calculated using the following formula:
 
-  <\indent>
-    A = X / (2 ^ 8)
+  <\cpp-code>
+    unsigned int a = x / (2 ^ 8);
 
-    B = X % (2 ^ 8)
-  </indent>
-
-  \;
+    unsigned int b = x % (2 ^ 8);
+  </cpp-code>
 
   <\itemize>
     <item>The dividend is the width or height value, which can be an unsigned
@@ -50,47 +48,39 @@
     <item>Quotient \PA\Q is the result without a remainder.
   </itemize>
 
-  \;
-
   As an example, 1920x1080 is represented in the blam.sav with the following
   values:
 
-  <\indent>
-    X = 1920
+  <\cpp-code>
+    unsigned int x = 1920; // width
 
-    Y = 1080
-
-    \;
-
-    A = X / (2 ^ 8) = 7
-
-    B = X % (2 ^ 8) = 128
+    unsigned int y = 1080; // height
 
     \;
 
-    C = Y / (2 ^ 8) = 4
+    unsigned int a = x / (2 ^ 8); // = 7
 
-    D = Y % (2 ^ 8) = 56
-  </indent>
+    unsigned int b = x % (2 ^ 8); // = 128
+
+    \;
+
+    unsigned int c = y / (2 ^ 8); // = 4
+
+    unsigned int d = y % (2 ^ 8); // = 56
+  </cpp-code>
 
   <subsubsection|Retrieval>
 
   To get back the values from the blam.sav with the two variables, the
-  following formula can be used:
-
-  <\indent>
-    X = (A * (2 ^ 8)) + B
-  </indent>
-
-  \;
+  following formula can be used: <cpp|unsigned int x = (a * (2 ^ 8)) + b>
 
   To get 1920 and 1080 back, we sould use 128 & 7 and 56 & 4, respectively:
 
-  <\indent>
-    X = (7 * (2 ^ 8)) + 128 = 1920
+  <\cpp-code>
+    unsigned int x = (7 * (2 ^ 8)) + 128 = 1920; // width
 
-    Y = (4 * (2 ^ 8)) + 56<space|1em>= 1080
-  </indent>
+    unsigned int y = (4 * (2 ^ 8)) + 56 \ = 1080; // height
+  </cpp-code>
 
   <subsubsection|Offsets>
 
