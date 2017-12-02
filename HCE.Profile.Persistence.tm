@@ -350,6 +350,27 @@
   <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Enhancement>|<cell|Address>>|<row|<cell|Hardware
   Acceleration>|<cell|0x00000B7C>>|<row|<cell|Environmental
   Sound>|<cell|0x00000B7B>>>>>
+
+  <section|Network>
+
+  <subsection|Connection Types>
+
+  <subsubsection|States>
+
+  HCE uses the following connection types for determining the maximum number
+  of players in a self-hosted server:
+
+  <\itemize>
+    <item>56k
+
+    <item>DSL/Cable (Poor)
+
+    <item>DSL/Cable (Normal)
+
+    <item>DSL/Cable (Best)
+
+    <item>T1/LAN
+  </itemize>
 </body>
 
 <\initial>
