@@ -9,7 +9,9 @@
     \;
 
     \;
-  </author-data>>|<doc-date|<date>>>
+  </author-data>>|<\doc-date>
+    <date>
+  </doc-date>|<doc-misc|DRAFT>>
     \;
   </doc-data>
 
@@ -214,7 +216,7 @@
 
     \ \ \ \ unsigned int chosen_framerate = 1; // 0x1
 
-    \ \ \ \ // write the chosen framerate to the blam
+    \ \ \ \ // write the chosen framerate to the file
 
     }
   </cpp-code>
