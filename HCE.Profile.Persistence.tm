@@ -113,6 +113,30 @@
     <with|par-left|2tab|2.3.2.<space|2spc>Offsets
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-22>>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3.<space|2spc>Network>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-23><vspace|0.5fn>
+
+    <with|par-left|1tab|3.1.<space|2spc>Connection Types
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-24>>
+
+    <with|par-left|2tab|3.1.1.<space|2spc>States
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-25>>
+
+    <with|par-left|1tab|3.2.<space|2spc>Connection Ports
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-26>>
+
+    <with|par-left|2tab|3.2.1.<space|2spc>Introduction
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-27>>
+
+    <with|par-left|1tab|3.3.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-28>>
   </table-of-contents>
 
   <section|Video Configuration>
