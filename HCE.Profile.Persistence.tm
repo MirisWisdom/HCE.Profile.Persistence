@@ -22,6 +22,83 @@
     The methodology, offsets and attributes of the properties are showcased
     with descriptions and code examples.
   </abstract>>
+
+  <section|Video Configuration>
+
+  <subsection|Resolution>
+
+  <subsubsection|Calculation>
+
+  The width and height will each be represented by two unsigned 7-bit
+  variables, A & B, whose values are calculated using the following formula:
+
+  <\indent>
+    A = X / (2 ^ 8)
+
+    B = X % (2 ^ 8)
+  </indent>
+
+  \;
+
+  <\itemize>
+    <item>The dividend is the width or height value, which can be an unsigned
+    integer of a value up to 32768.
+
+    <item>The dividor can be represented with the magic number of 0x100
+    (256).
+
+    <item>Quotient \PA\Q is the result without a remainder.
+  </itemize>
+
+  \;
+
+  As an example, 1920x1080 is represented in the blam.sav with the following
+  values:
+
+  <\indent>
+    X = 1920
+
+    Y = 1080
+
+    \;
+
+    A = X / (2 ^ 8) = 7
+
+    B = X % (2 ^ 8) = 128
+
+    \;
+
+    C = Y / (2 ^ 8) = 4
+
+    D = Y % (2 ^ 8) = 56
+  </indent>
+
+  <subsubsection|Retrieval>
+
+  To get back the values from the blam.sav with the two variables, the
+  following formula can be used:
+
+  <\indent>
+    X = (A * (2 ^ 8)) + B
+  </indent>
+
+  \;
+
+  To get 1920 and 1080 back, we sould use 128 & 7 and 56 & 4, respectively:
+
+  <\indent>
+    X = (7 * (2 ^ 8)) + 128 = 1920
+
+    Y = (4 * (2 ^ 8)) + 56<space|1em>= 1080
+  </indent>
+
+  <subsubsection|Offsets>
+
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Width>|<cell|Height>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Value>|<cell|Address>>|<row|<cell|X
+  / (2 ^ 8)>|<cell|0x00000A69>>|<row|<cell|X ^ (2 ^
+  8)>|<cell|0x00000A68>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Value>|<cell|Address>>|<row|<cell|X
+  / (2 ^ 8)>|<cell|0x00000A6B>>|<row|<cell|X ^ (2 ^
+  8)>|<cell|0x00000A6A>>>>>>>>>>
 </body>
 
 <\initial>
