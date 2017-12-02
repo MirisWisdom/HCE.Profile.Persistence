@@ -92,6 +92,27 @@
   8)>|<cell|0x00000A68>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Value>|<cell|Address>>|<row|<cell|Y
   / (2 ^ 8)>|<cell|0x00000A6B>>|<row|<cell|Y % (2 ^
   8)>|<cell|0x00000A6A>>>>>>>>>>
+
+  <subsection|Effects>
+
+  <subsubsection|Summary>
+
+  Effects, in this context, refer to the following graphical options:
+
+  <\itemize>
+    <item>Specular - Effects and luster to objects
+
+    <item>Shadows - Dynamic shadows\ 
+
+    <item>Decals - Bullet holes and blood
+  </itemize>
+
+  All three options are stored as booleans in the blam.sav, with 1 and 0
+  representing on and off, respectively.
+
+  <subsubsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Specular>|<cell|0x00000A70>>|<row|<cell|Shadows>|<cell|0x00000A71>>|<row|<cell|Decals>|<cell|0x00000A72>>>>>
 </body>
 
 <\initial>
