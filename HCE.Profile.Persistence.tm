@@ -137,6 +137,38 @@
   Off>|<cell|0x0>>|<row|<cell|VSync On>|<cell|0x1>>|<row|<cell|30
   FPS>|<cell|0x2>>>>>>|<cell|<block*|<tformat|<cwith|2|4|1|1|cell-width|100px>|<cwith|2|4|1|1|cell-hmode|exact>|<cwith|2|4|2|2|cell-width|100px>|<cwith|2|4|2|2|cell-hmode|exact>|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|None>|<cell|0x0>>|<row|<cell|Low>|<cell|0x1>>|<row|<cell|Full>|<cell|0x2>>>>>>|<cell|<block*|<tformat|<cwith|2|4|1|1|cell-width|100px>|<cwith|2|4|1|1|cell-hmode|exact>|<cwith|2|4|2|2|cell-width|100px>|<cwith|2|4|2|2|cell-hmode|exact>|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|Low>|<cell|0x0>>|<row|<cell|Medium>|<cell|0x1>>|<row|<cell|High>|<cell|0x2>>>>>>>>>>
 
+  Enumerators could be used for representing these states:
+
+  <\cpp-code>
+    // enumerators
+
+    enum framerate_t { vsync_on, no_vsync, locked };
+
+    enum particles_t { none, low, full };
+
+    enum qualities_t { low, medium, high }
+
+    \;
+
+    // for example, handling the chosen framerate
+
+    framerate_t chosen_framerate;
+
+    chosen_framerate = vsync_off;
+
+    \;
+
+    if (chosen_framerate == vsync_off)
+
+    {
+
+    \ \ \ \ unsigned int chosen_framerate = 1; // 0x1
+
+    \ \ \ \ // write the chosen framerate to the blam
+
+    }
+  </cpp-code>
+
   <subsubsection|Offsets>
 
   <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Frame
