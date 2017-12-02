@@ -226,6 +226,90 @@
   <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Frame
   Rate>|<cell|0x00000A6F>>|<row|<cell|Particles>|<cell|0x00000A73>>|<row|<cell|Texture
   Quality>|<cell|0x00000A74>>>>>
+
+  <section|Audio Configuration>
+
+  <subsection|Volumes>
+
+  <subsubsection|Introduction>
+
+  The volumes that are stored in the binary file are the following:
+
+  <\itemize>
+    <item>Master
+
+    <item>Effects
+
+    <item>Music
+  </itemize>
+
+  The volumes for each option are stored using uint8 variables with a value
+  between 0x00 and 0x0A, where 0x00 = 0 = Mute, and 0x0A = 10 = Maximum
+  volume.
+
+  <subsubsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Volume>|<cell|Address>>|<row|<cell|Master>|<cell|0x00000B78>>|<row|<cell|Effects>|<cell|0x00000B79>>|<row|<cell|Music>|<cell|0x00000B7A>>>>>
+
+  <subsection|Quality & Variety>
+
+  The audio quality and variety levels both have three possible states,
+  represented by uint8 variables.
+
+  <subsubsection|States>
+
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Quality>|<cell|Variety>>|<row|<cell|<block*|<tformat|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|Low>|0x0>|<row|<cell|Normal>|<cell|0x1>>|<row|<cell|High>|<cell|0x2>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|Low>|<cell|0x1>>|<row|<cell|Medium>|<cell|0x2>>|<row|<cell|High>|<cell|0x3>>>>>>>>>>
+
+  Like the video-related states, enumerators can be used for a higher-level
+  representation of the audio quality & variety states:
+
+  <\cpp-code>
+    // enumerators
+
+    enum quality_t { low, normal, high };
+
+    enum variety_t { low, medium, high };
+
+    \;
+
+    // handling the chosen audio quality
+
+    quality_t chosen_quality;
+
+    chosen_quality = high;
+
+    \;
+
+    if (chosen_quality == high)
+
+    {
+
+    \ \ \ \ unsigned int quality = 2; // 0x2
+
+    \ \ \ \ // write the quality to the file
+
+    }
+  </cpp-code>
+
+  <subsubsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Sound
+  Quality>|<cell|0x00000B7D>>|<row|<cell|Sound Variety>|<cell|0x00000C7F>>>>>
+
+  <subsection|Enhancements>
+
+  Enhancements in this context refer to Hardware Acceleration and
+  Environmental Sound options, both which are binary values stored as uint8.
+
+  <subsubsection|Switches>
+
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Acceleration>|<cell|Environmental>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Switch>|<cell|Value>>|<row|<cell|No>|<cell|0x0>>|<row|<cell|Yes>|<cell|0x1>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Switch>|<cell|Value>>|<row|<cell|Off>|<cell|0x0>>|<row|<cell|EAX>|<cell|0x1>>>>>>>>>>
+
+  <subsubsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Enhancement>|<cell|Address>>|<row|<cell|Hardware
+  Acceleration>|<cell|0x00000B7C>>|<row|<cell|Environmental
+  Sound>|<cell|0x00000B7B>>>>>
 </body>
 
 <\initial>
