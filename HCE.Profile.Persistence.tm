@@ -46,7 +46,7 @@
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-5>>
 
-    <with|par-left|1tab|1.2.<space|2spc>Toggles
+    <with|par-left|1tab|1.2.<space|2spc>Effects
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-6>>
 
@@ -58,7 +58,7 @@
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-8>>
 
-    <with|par-left|1tab|1.3.<space|2spc>Levels
+    <with|par-left|1tab|1.3.<space|2spc>Framerate, Particles & Qualities
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-9>>
 
@@ -73,6 +73,46 @@
     <with|par-left|2tab|1.3.3.<space|2spc>Offsets
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-12>>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2.<space|2spc>Audio
+    Configuration> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-13><vspace|0.5fn>
+
+    <with|par-left|1tab|2.1.<space|2spc>Volumes
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-14>>
+
+    <with|par-left|2tab|2.1.1.<space|2spc>Introduction
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-15>>
+
+    <with|par-left|2tab|2.1.2.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-16>>
+
+    <with|par-left|1tab|2.2.<space|2spc>Quality & Variety
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-17>>
+
+    <with|par-left|2tab|2.2.1.<space|2spc>States
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-18>>
+
+    <with|par-left|2tab|2.2.2.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-19>>
+
+    <with|par-left|1tab|2.3.<space|2spc>Enhancements
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-20>>
+
+    <with|par-left|2tab|2.3.1.<space|2spc>Switches
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-21>>
+
+    <with|par-left|2tab|2.3.2.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-22>>
   </table-of-contents>
 
   <section|Video Configuration>
@@ -81,8 +121,8 @@
 
   <subsubsection|Calculation>
 
-  The width and height will each be represented by two unsigned short
-  variables, A & B, whose values are calculated using the following formula:
+  The width and height will each be represented by two uint8 variables, A &
+  B, whose values are calculated using the following formula:
 
   <\cpp-code>
     unsigned int a = x / (2 ^ 8); // 2 ^ 8 = 256 or 0x100
@@ -145,14 +185,14 @@
   / (2 ^ 8)>|<cell|0x00000A6B>>|<row|<cell|Y % (2 ^
   8)>|<cell|0x00000A6A>>>>>>>>>>
 
-  <subsection|Toggles>
+  <subsection|Effects>
 
   <subsubsection|Introduction>
 
-  This section covers video options that can be turned on and off; hence,
-  they'd be stored as boolean values in the binary file. As far as toggles
-  go, only the effects are toggles. Effects, in this context, refer to the
-  following graphical options:
+  This section covers video effects that can be turned on and off. They're
+  stored as boolean values in the binary file, represented by uint8
+  variables. Effects, in this context, refer to the following graphical
+  options:
 
   <\itemize>
     <item>Specular - Effects and luster to objects
@@ -166,13 +206,13 @@
 
   <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Specular>|<cell|0x00000A70>>|<row|<cell|Shadows>|<cell|0x00000A71>>|<row|<cell|Decals>|<cell|0x00000A72>>>>>
 
-  <subsection|Levels>
+  <subsection|Framerate, Particles & Qualities>
 
   <subsubsection|Introduction>
 
   This section covers video options that can have different values to signify
-  their current state. In the binary files, they're stored as unsigned bytes.
-  Options that are \Plevels\Q include the following:
+  their current state. In the binary files, they're stored as uint8. Options
+  that are \Plevels\Q include the following:
 
   <\itemize>
     <item>Frame Rate
@@ -202,7 +242,7 @@
 
     \;
 
-    // for example, handling the chosen framerate
+    // handling the chosen framerate
 
     framerate_t chosen_framerate;
 
@@ -214,9 +254,9 @@
 
     {
 
-    \ \ \ \ unsigned int chosen_framerate = 1; // 0x1
+    \ \ \ \ unsigned int framerate = 1; // 0x1
 
-    \ \ \ \ // write the chosen framerate to the file
+    \ \ \ \ // write the framerate to the file
 
     }
   </cpp-code>
