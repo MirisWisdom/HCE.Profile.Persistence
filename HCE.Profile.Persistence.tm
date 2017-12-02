@@ -422,6 +422,142 @@
   8)>|<cell|0x00001005>>|<row|<cell|>|<cell|>|<cell|x % (2 ^
   8)>|<cell|0x00001004>>|<row|<cell|Connection
   Types>|<cell|~>|<cell|Type>|<cell|0x00000FC0>>>>>
+
+  <section|Player Customisation>
+
+  <subsection|Profile Name>
+
+  The profile name is stored as a hex representation of its UTF-16
+  equivalent. The plain string value can be a maximum of 11 characters, and
+  the caracters can only be ASCII characters.
+
+  <subsubsection|Encoding>
+
+  A simple way to represent it is to add null characters between each
+  character.
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Plain
+  Value>|<cell|Encoded Value>|<cell|Encoded Value in
+  Hexadecimal>>|<row|<cell|New001>|<cell|N.e.w.0.0.1.>|<cell|4E 00 65 00 77
+  00 30 00 30 00 31 00>>>>>
+
+  Since the plain value string can be a maximum length of 11 characters, the
+  whole array can be a maximum length of 22 indices. A simple implementation
+  in Python:
+
+  <\python-code>
+    def encode(name: str) -\<gtr\> bytearray:
+
+    \ \ \ \ # plain value
+
+    \ \ \ \ n = name
+
+    \;
+
+    \ \ \ \ # encoded value in hex
+
+    \ \ \ \ # length would be name.length * 2
+
+    \ \ \ \ y = {}
+
+    \;
+
+    \ \ \ \ # current loop iteration
+
+    \ \ \ \ i = 0
+
+    \;
+
+    \ \ \ \ # for each character,
+
+    \ \ \ \ # append its hex equivalent
+
+    \ \ \ \ # and append null after it
+
+    \ \ \ \ for c in n:
+
+    \ \ \ \ \ \ \ \ y[i] = hex(ord(c))
+
+    \ \ \ \ \ \ \ \ y[i + 1] = '\\0'
+
+    \ \ \ \ \ \ \ \ i = i + 2
+
+    \;
+
+    \ \ \ \ return y
+
+    \;
+
+    \;
+
+    if __name__ == '__main__':
+
+    \ \ \ \ print(encode('New001'))
+  </python-code>
+
+  <page-break>
+
+  <subsubsection|Decoding>
+
+  The naive way to decode the name is to loop through the encoded name array
+  and convert the hex value to a string. In Python, it's unsurprisingly
+  simple:
+
+  <\python-code>
+    def decode(name: bytearray) -\<gtr\> str:
+
+    \ \ \ \ y = name
+
+    \ \ \ \ n = ''
+
+    \;
+
+    \ \ \ \ for c in y:
+
+    \ \ \ \ \ \ \ \ n += chr(c)
+
+    \;
+
+    \ \ \ \ return n
+
+    \;
+
+    \;
+
+    if __name__ == '__main__':
+
+    \ \ \ \ array = [
+
+    \ \ \ \ \ \ \ \ 0x4E, \ # N
+
+    \ \ \ \ \ \ \ \ 0x00,
+
+    \ \ \ \ \ \ \ \ 0x65, \ # e
+
+    \ \ \ \ \ \ \ \ 0x00,
+
+    \ \ \ \ \ \ \ \ 0x77, \ # w
+
+    \ \ \ \ \ \ \ \ 0x00,
+
+    \ \ \ \ \ \ \ \ 0x30, \ # 0
+
+    \ \ \ \ \ \ \ \ 0x00,
+
+    \ \ \ \ \ \ \ \ 0x30, \ # 0
+
+    \ \ \ \ \ \ \ \ 0x00,
+
+    \ \ \ \ \ \ \ \ 0x31, \ # 1
+
+    \ \ \ \ \ \ \ \ 0x00
+
+    \ \ \ \ ]
+
+    \;
+
+    \ \ \ \ print(decode(array))
+  </python-code>
 </body>
 
 <\initial>
