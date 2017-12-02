@@ -130,13 +130,18 @@
     <item>Texture Quality
   </itemize>
 
-  <subsubsection|States & Offsets>
+  <subsubsection|States>
 
-  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|State>|<cell|Offset>>|<row|<cell|Frame
-  Rate>|<cell|<block*|<tformat|<cwith|1|-1|1|-1|cell-width|100px>|<cwith|1|-1|1|-1|cell-hmode|exact>|<table|<row|<cell|VSync
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Frame
+  Rate>|<cell|Particles>|<cell|Texture Quality>>|<row|<cell|<block*|<tformat|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|VSync
   Off>|<cell|0x0>>|<row|<cell|VSync On>|<cell|0x1>>|<row|<cell|30
-  FPS>|<cell|0x2>>>>>>|<cell|0x00000A6F>>|<row|<cell|Particles>|<cell|<block*|<tformat|<cwith|1|-1|1|-1|cell-width|100px>|<cwith|1|-1|1|-1|cell-hmode|exact>|<table|<row|<cell|None>|<cell|0x0>>|<row|<cell|Low>|<cell|0x1>>|<row|<cell|Full>|<cell|0x2>>>>>>|<cell|0x00000A73>>|<row|<cell|Texture
-  Quality>|<cell|<block*|<tformat|<cwith|1|-1|1|-1|cell-width|100px>|<cwith|1|-1|1|-1|cell-hmode|exact>|<table|<row|<cell|Low>|<cell|0x0>>|<row|<cell|Medium>|<cell|0x1>>|<row|<cell|High>|<cell|0x2>>>>>>|<cell|0x00000A74>>>>>
+  FPS>|<cell|0x2>>>>>>|<cell|<block*|<tformat|<cwith|2|4|1|1|cell-width|100px>|<cwith|2|4|1|1|cell-hmode|exact>|<cwith|2|4|2|2|cell-width|100px>|<cwith|2|4|2|2|cell-hmode|exact>|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|None>|<cell|0x0>>|<row|<cell|Low>|<cell|0x1>>|<row|<cell|Full>|<cell|0x2>>>>>>|<cell|<block*|<tformat|<cwith|2|4|1|1|cell-width|100px>|<cwith|2|4|1|1|cell-hmode|exact>|<cwith|2|4|2|2|cell-width|100px>|<cwith|2|4|2|2|cell-hmode|exact>|<table|<row|<cell|State>|<cell|Value>>|<row|<cell|Low>|<cell|0x0>>|<row|<cell|Medium>|<cell|0x1>>|<row|<cell|High>|<cell|0x2>>>>>>>>>>
+
+  <subsubsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Frame
+  Rate>|<cell|0x00000A6F>>|<row|<cell|Particles>|<cell|0x00000A73>>|<row|<cell|Texture
+  Quality>|<cell|0x00000A74>>>>>
 </body>
 
 <\initial>
