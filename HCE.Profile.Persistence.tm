@@ -23,6 +23,56 @@
     with descriptions and code examples.
   </abstract>>
 
+  <\table-of-contents|toc>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|1.<space|2spc>Video
+    Configuration> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-1><vspace|0.5fn>
+
+    <with|par-left|1tab|1.1.<space|2spc>Resolution
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-2>>
+
+    <with|par-left|2tab|1.1.1.<space|2spc>Calculation
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-3>>
+
+    <with|par-left|2tab|1.1.2.<space|2spc>Retrieval
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-4>>
+
+    <with|par-left|2tab|1.1.3.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-5>>
+
+    <with|par-left|1tab|1.2.<space|2spc>Toggles
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-6>>
+
+    <with|par-left|2tab|1.2.1.<space|2spc>Introduction
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-7>>
+
+    <with|par-left|2tab|1.2.2.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-8>>
+
+    <with|par-left|1tab|1.3.<space|2spc>Levels
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-9>>
+
+    <with|par-left|2tab|1.3.1.<space|2spc>Introduction
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-10>>
+
+    <with|par-left|2tab|1.3.2.<space|2spc>States
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-11>>
+
+    <with|par-left|2tab|1.3.3.<space|2spc>Offsets
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-12>>
+  </table-of-contents>
+
   <section|Video Configuration>
 
   <subsection|Resolution>
