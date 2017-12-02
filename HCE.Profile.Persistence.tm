@@ -558,6 +558,18 @@
 
     \ \ \ \ print(decode(array))
   </python-code>
+
+  <subsection|Player Colour>
+
+  The player's colour in online free-for-all game modes (e.g. slayer,
+  oddball, etc.) is stored as an uint8, and can be one of the following 18
+  values:
+
+  <tabular|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<cell|<block*|<tformat|<table|<row|<cell|Colour>|<cell|Value>>|<row|<cell|Aqua>|<cell|0x0C>>|<row|<cell|Black>|<cell|0x01>>|<row|<cell|Blue>|<cell|0x03>>|<row|<cell|Brown>|<cell|0x0E>>|<row|<cell|Cobalt>|<cell|0x0A>>|<row|<cell|Crimson>|<cell|0x02>>|<row|<cell|Cyan>|<cell|0x09>>|<row|<cell|Gold>|<cell|0x05>>|<row|<cell|Green>|<cell|0x06>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Colour>|<cell|Value>>|<row|<cell|Maroon>|<cell|0x10>>|<row|<cell|Orange>|<cell|0x0B>>|<row|<cell|Peach>|<cell|0x11>>|<row|<cell|Rose>|<cell|0x07>>|<row|<cell|Sage>|<cell|0x0D>>|<row|<cell|Snow>|<cell|0x00>>|<row|<cell|Steel>|<cell|0x04>>|<row|<cell|Tan>|<cell|0x0F>>|<row|<cell|Violet>|<cell|0x08>>>>>>>>>>
+
+  <subsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|Option|<cell|Address>>|<row|<cell|Name>|<cell|0x00000002>>|<row|<cell|Colour>|<cell|0x0000011A>>>>>
 </body>
 
 <\initial>
