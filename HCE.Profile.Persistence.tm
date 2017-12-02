@@ -29,7 +29,7 @@
 
   <subsubsection|Calculation>
 
-  The width and height will each be represented by two unsigned 7-bit
+  The width and height will each be represented by two unsigned short
   variables, A & B, whose values are calculated using the following formula:
 
   <\indent>
@@ -44,7 +44,7 @@
     <item>The dividend is the width or height value, which can be an unsigned
     integer of a value up to 32768.
 
-    <item>The dividor can be represented with the magic number of 0x100
+    <item>The divisor can be represented with the magic number of 0x100
     (256).
 
     <item>Quotient \PA\Q is the result without a remainder.
