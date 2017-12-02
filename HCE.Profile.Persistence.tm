@@ -172,9 +172,9 @@
   To get 1920 and 1080 back, we should use 128 & 7 and 56 & 4, respectively:
 
   <\cpp-code>
-    unsigned int x = (7 * (2 ^ 8)) + 128 = 1920; // width
+    unsigned int x = (7 * (2 ^ 8)) + 128; // width of 1920
 
-    unsigned int y = (4 * (2 ^ 8)) + 56 \ = 1080; // height
+    unsigned int y = (4 * (2 ^ 8)) + 56; \ // height of 1080
   </cpp-code>
 
   <subsubsection|Offsets>
@@ -358,19 +358,46 @@
   <subsubsection|States>
 
   HCE uses the following connection types for determining the maximum number
-  of players in a self-hosted server:
+  of players in a self-hosted server. The selected value is stored in an
+  uint8 variable.
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|2|2|1|1|cell-row-span|3>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|5|5|1|1|cell-row-span|1>|<cwith|5|5|1|1|cell-col-span|2>|<cwith|6|6|1|1|cell-row-span|1>|<cwith|6|6|1|1|cell-col-span|2>|<table|<row|<cell|Category>|<cell|Type>|<cell|Value>>|<row|<cell|DSL>|<cell|Poor>|<cell|0x1>>|<row|<cell|>|<cell|Normal>|<cell|0x2>>|<row|<cell|>|<cell|Best>|<cell|0x3>>|<row|<cell|T1/LAN>|<cell|>|<cell|0x4>>|<row|<cell|56k>|<cell|>|<cell|0x0>>>>>
+
+  <subsection|Connection Ports>
+
+  <subsubsection|Introduction>
+
+  Ports are stored in uint16 variables with a maximum value of (2 ^ 16) - 1.
+
+  Calculation and retrieval is done the exact same way as video resolutions.
+  For a more elaborate explanation of the formulae, check the Resolutions
+  subsection in the Video Configuration section!
 
   <\itemize>
-    <item>56k
+    <item>Calculation:
 
-    <item>DSL/Cable (Poor)
+    <\cpp-code>
+      <cpp|unsigned int a = x / (2 ^ 8); // x = port>
 
-    <item>DSL/Cable (Normal)
+      unsigned int b = x % (2 ^ 8);
+    </cpp-code>
 
-    <item>DSL/Cable (Best)
+    <item>Retrieval:
 
-    <item>T1/LAN
+    <\cpp-code>
+      unsigned int x = (a * (2 ^ 8)) + b; // a = port / 0x100; b = port /
+      0x100
+    </cpp-code>
   </itemize>
+
+  <subsection|Offsets>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|4|4|2|2|cell-row-span|2>|<cwith|4|4|2|2|cell-col-span|1>|<cwith|2|2|2|2|cell-row-span|2>|<cwith|2|2|2|2|cell-col-span|1>|<cwith|2|2|1|1|cell-row-span|4>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|2|2|2|2|cell-valign|c>|<cwith|4|4|2|2|cell-valign|c>|<cwith|6|6|1|1|cell-row-span|1>|<cwith|6|6|1|1|cell-col-span|3>|<table|<row|<cell|Option>|<cell|Sections>|<cell|Variables>|<cell|Address>>|<row|<cell|Connection
+  Ports>|<cell|Server>|<cell|x / (2 ^ 8)>|<cell|0x00001003>>|<row|<cell|>|<cell|>|<cell|x
+  % (2 ^ 8)>|<cell|0x00001002>>|<row|<cell|>|<cell|Client>|<cell|x / (2 ^
+  8)>|<cell|0x00001005>>|<row|<cell|>|<cell|>|<cell|x % (2 ^
+  8)>|<cell|0x00001004>>|<row|<cell|Connection
+  Types>|<cell|>|<cell|>|<cell|0x00000FC0>>>>>
 </body>
 
 <\initial>
