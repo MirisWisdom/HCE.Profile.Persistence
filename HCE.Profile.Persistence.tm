@@ -385,7 +385,7 @@
     <item>Retrieval:
 
     <\cpp-code>
-      unsigned int x = (a * (2 ^ 8)) + b; // a = port / 0x100; b = port /
+      unsigned int x = (a * (2 ^ 8)) + b; // a = port / 0x100; b = port %
       0x100
     </cpp-code>
   </itemize>
