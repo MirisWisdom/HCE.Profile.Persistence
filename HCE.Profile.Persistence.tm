@@ -22,7 +22,7 @@
     HCE profile.
 
     The methodology, offsets and attributes of the properties are showcased
-    with descriptions and code examples.
+    with descriptions and code examples in either C++ or Python.
   </abstract>>
 
   <\table-of-contents|toc>
@@ -169,8 +169,8 @@
 
   <subsubsection|Calculation>
 
-  The width and height will each be represented by two uint8 variables, A &
-  B, whose values are calculated using the following formula:
+  The width and height are each represented by two uint8 variables, A & B,
+  whose values are calculated using the following formula:
 
   <\cpp-code>
     unsigned int a = x / (2 ^ 8); // 2 ^ 8 = 256 or 0x100
@@ -179,14 +179,16 @@
   </cpp-code>
 
   <\itemize>
-    <item>The dividend is the width or height value, which can be an unsigned
-    short of a value up to 2^15 (32768 or 0x8000).
+    <item>The dividend is the width or height value, which can be an uint8
+    variable of a value up to 2^15 (32768 or 0x8000).
 
     <item>The divisor can be represented with the magic unsigned integer of
     2^8.
 
     <item>Quotient \PA\Q is the result <em|without> a remainder when dividing
     by 2^8.
+
+    <item>The decimal values are stored as their hexadecimal equivalent.
   </itemize>
 
   For example, 1920x1080 is represented in the blam.sav with the following
@@ -210,6 +212,11 @@
     unsigned int d = y % (2 ^ 8); // = 56
   </cpp-code>
 
+  Therefore, in the binary file, the values would be stored in this manner:
+
+  <block*|<tformat|<cwith|1|1|4|4|cell-row-span|1>|<cwith|1|1|4|4|cell-col-span|2>|<cwith|1|1|2|2|cell-row-span|1>|<cwith|1|1|2|2|cell-col-span|2>|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Resolution>|<cell|Width>|<cell|>|<cell|Height>|<cell|>>|<row|<cell|Decimal>|<cell|128>|<cell|07>|<cell|56>|<cell|04>>|<row|<cell|Hexadecimal>|<cell|80>|<cell|07>|<cell|38>|<cell|04>>|<row|<cell|Formula>|<cell|x
+  % (2 ^ 8)>|<cell|x / (2 ^ 8)>|<cell|y % (2 ^ 8)>|<cell|y / (2 ^ 8)>>>>>
+
   <new-page>
 
   <subsubsection|Retrieval>
@@ -225,13 +232,16 @@
     unsigned int y = (4 * (2 ^ 8)) + 56; \ // height of 1080
   </cpp-code>
 
+  Note that the values must be first converted to decimal from their
+  hexadecimal counterpart.
+
   <subsubsection|Offsets>
 
-  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Width>|<cell|Height>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Value>|<cell|Address>>|<row|<cell|X
-  / (2 ^ 8)>|<cell|0x00000A69>>|<row|<cell|X % (2 ^
-  8)>|<cell|0x00000A68>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Value>|<cell|Address>>|<row|<cell|Y
-  / (2 ^ 8)>|<cell|0x00000A6B>>|<row|<cell|Y % (2 ^
-  8)>|<cell|0x00000A6A>>>>>>>>>>
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Width>|<cell|Height>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Formula>|<cell|Variable>|<cell|Address>>|<row|<cell|X
+  / (2 ^ 8)>|<cell|A>|<cell|0x00000A69>>|<row|<cell|X % (2 ^
+  8)>|<cell|B>|<cell|0x00000A68>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Formula>|<cell|Variable>|<cell|Address>>|<row|<cell|Y
+  / (2 ^ 8)>|<cell|C>|<cell|0x00000A6B>>|<row|<cell|Y % (2 ^
+  8)>|<cell|D>|<cell|0x00000A6A>>>>>>>>>>
 
   <subsection|Effects>
 
@@ -252,7 +262,7 @@
 
   <subsubsection|Offsets>
 
-  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Specular>|<cell|0x00000A70>>|<row|<cell|Shadows>|<cell|0x00000A71>>|<row|<cell|Decals>|<cell|0x00000A72>>>>>
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Specular>|<cell|0x00000A70>>|<row|<cell|Shadows>|<cell|0x00000A71>>|<row|<cell|Decals>|<cell|0x00000A72>>>>><page-break>
 
   <subsection|Framerate, Particles & Qualities>
 
@@ -313,7 +323,7 @@
 
   <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Frame
   Rate>|<cell|0x00000A6F>>|<row|<cell|Particles>|<cell|0x00000A73>>|<row|<cell|Texture
-  Quality>|<cell|0x00000A74>>>>>
+  Quality>|<cell|0x00000A74>>>>><page-break>
 
   <section|Audio Configuration>
 
@@ -401,6 +411,9 @@
 
   <section|Network>
 
+  This section covers the network options, which include the connection type
+  and server/client connection ports.
+
   <subsection|Connection Types>
 
   <subsubsection|States>
@@ -409,17 +422,18 @@
   of players in a self-hosted server. The selected value is stored in an
   uint8 variable.
 
-  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|2|2|1|1|cell-row-span|3>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|5|5|2|2|cell-row-span|1>|<cwith|5|5|2|2|cell-col-span|1>|<cwith|6|6|2|2|cell-row-span|1>|<cwith|6|6|2|2|cell-col-span|1>|<cwith|5|5|1|1|cell-row-span|2>|<cwith|5|5|1|1|cell-col-span|1>|<cwith|5|5|1|1|cell-valign|c>|<table|<row|<cell|Category>|<cell|Type>|<cell|Value>>|<row|<cell|DSL>|<cell|Poor>|<cell|0x1>>|<row|<cell|>|<cell|Normal>|<cell|0x2>>|<row|<cell|>|<cell|Best>|<cell|0x3>>|<row|<cell|~>|<cell|T1/LAN>|<cell|0x4>>|<row|<cell|>|<cell|56k>|<cell|0x0>>>>>
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|2|2|1|1|cell-row-span|3>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|5|5|2|2|cell-row-span|1>|<cwith|5|5|2|2|cell-col-span|1>|<cwith|6|6|2|2|cell-row-span|1>|<cwith|6|6|2|2|cell-col-span|1>|<cwith|5|5|1|1|cell-row-span|2>|<cwith|5|5|1|1|cell-col-span|1>|<cwith|5|5|1|1|cell-valign|c>|<table|<row|<cell|Category>|<cell|Type>|<cell|Value>>|<row|<cell|DSL>|<cell|Poor>|<cell|0x1>>|<row|<cell|>|<cell|Normal>|<cell|0x2>>|<row|<cell|>|<cell|Best>|<cell|0x3>>|<row|<cell|~>|<cell|T1/LAN>|<cell|0x4>>|<row|<cell|>|<cell|56k>|<cell|0x0>>>>><page-break>
 
   <subsection|Connection Ports>
 
   <subsubsection|Introduction>
 
-  Ports are stored in uint16 variables with a maximum value of (2 ^ 16) - 1.
+  Ports are stored in uint16 variables with a maximum value of (2 ^ 16) - 1,
+  or 65535.
 
   Calculation and retrieval is done the exact same way as video resolutions.
   For a more elaborate explanation of the formulae, check the Resolutions
-  subsection in the Video Configuration section!
+  subsection in the Video Configuration section.
 
   <\itemize>
     <item>Calculation:
@@ -440,12 +454,15 @@
 
   <subsection|Offsets>
 
-  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|4|4|2|2|cell-row-span|2>|<cwith|4|4|2|2|cell-col-span|1>|<cwith|2|2|2|2|cell-row-span|2>|<cwith|2|2|2|2|cell-col-span|1>|<cwith|2|2|1|1|cell-row-span|4>|<cwith|2|2|1|1|cell-col-span|1>|<cwith|2|2|1|1|cell-valign|c>|<cwith|2|2|2|2|cell-valign|c>|<cwith|4|4|2|2|cell-valign|c>|<cwith|6|6|1|1|cell-row-span|1>|<cwith|6|6|1|1|cell-col-span|1>|<table|<row|<cell|Option>|<cell|Sections>|<cell|Variables>|<cell|Address>>|<row|<cell|Connection
-  Ports>|<cell|Server>|<cell|x / (2 ^ 8)>|<cell|0x00001003>>|<row|<cell|>|<cell|>|<cell|x
-  % (2 ^ 8)>|<cell|0x00001002>>|<row|<cell|>|<cell|Client>|<cell|x / (2 ^
-  8)>|<cell|0x00001005>>|<row|<cell|>|<cell|>|<cell|x % (2 ^
-  8)>|<cell|0x00001004>>|<row|<cell|Connection
-  Types>|<cell|~>|<cell|Type>|<cell|0x00000FC0>>>>>
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Server
+  Port>|<cell|Client Port>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Formula>|<cell|Variable>|<cell|Address>>|<row|<cell|x
+  / (2 ^ 8)>|<cell|A>|<cell|0x00001003>>|<row|<cell|x % (2 ^
+  8)>|<cell|B>|<cell|0x00001002>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Formula>|<cell|Variable>|<cell|Address>>|<row|<cell|y
+  / (2 ^ 8)>|<cell|C>|<cell|0x00001005>>|<row|<cell|y % (2 ^
+  8)>|<cell|D>|<cell|0x00001004>>>>>>>>>><no-page-break>
+
+  <block*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Option>|<cell|Address>>|<row|<cell|Connection
+  Type>|<cell|0x00000FC0>>>>>
 
   <section|Player Customisation>
 
@@ -589,7 +606,7 @@
   oddball, etc.) is stored as an uint8, and can be one of the following 18
   values:
 
-  <tabular|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<cell|<block*|<tformat|<table|<row|<cell|Colour>|<cell|Value>>|<row|<cell|Aqua>|<cell|0x0C>>|<row|<cell|Black>|<cell|0x01>>|<row|<cell|Blue>|<cell|0x03>>|<row|<cell|Brown>|<cell|0x0E>>|<row|<cell|Cobalt>|<cell|0x0A>>|<row|<cell|Crimson>|<cell|0x02>>|<row|<cell|Cyan>|<cell|0x09>>|<row|<cell|Gold>|<cell|0x05>>|<row|<cell|Green>|<cell|0x06>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Colour>|<cell|Value>>|<row|<cell|Maroon>|<cell|0x10>>|<row|<cell|Orange>|<cell|0x0B>>|<row|<cell|Peach>|<cell|0x11>>|<row|<cell|Rose>|<cell|0x07>>|<row|<cell|Sage>|<cell|0x0D>>|<row|<cell|Snow>|<cell|0x00>>|<row|<cell|Steel>|<cell|0x04>>|<row|<cell|Tan>|<cell|0x0F>>|<row|<cell|Violet>|<cell|0x08>>>>>>>>>>
+  <tabular|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|1|1|1|cell-halign|c>|<cwith|1|1|2|2|cell-halign|c>|<table|<row|<cell|<block*|<tformat|<table|<row|<cell|Colour>|<cell|Value>>|<row|<cell|Aqua>|<cell|0x0C>>|<row|<cell|Black>|<cell|0x01>>|<row|<cell|Blue>|<cell|0x03>>|<row|<cell|Brown>|<cell|0x0E>>|<row|<cell|Cobalt>|<cell|0x0A>>|<row|<cell|Crimson>|<cell|0x02>>|<row|<cell|Cyan>|<cell|0x09>>|<row|<cell|Gold>|<cell|0x05>>|<row|<cell|Green>|<cell|0x06>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Colour>|<cell|Value>>|<row|<cell|Maroon>|<cell|0x10>>|<row|<cell|Orange>|<cell|0x0B>>|<row|<cell|Peach>|<cell|0x11>>|<row|<cell|Rose>|<cell|0x07>>|<row|<cell|Sage>|<cell|0x0D>>|<row|<cell|Snow>|<cell|0x00>>|<row|<cell|Steel>|<cell|0x04>>|<row|<cell|Tan>|<cell|0x0F>>|<row|<cell|Violet>|<cell|0x08>>>>>>>>>><no-page-break>
 
   <subsection|Offsets>
 
