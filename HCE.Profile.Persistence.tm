@@ -389,7 +389,7 @@
   Enhancements in this context refer to Hardware Acceleration and
   Environmental Sound options, both which are binary values stored as uint8.
 
-  <subsubsection|Switches>Value
+  <subsubsection|Switches>
 
   <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Acceleration>|<cell|Environmental>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Switch>|<cell|Value>>|<row|<cell|No>|<cell|0x0>>|<row|<cell|Yes>|<cell|0x1>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Switch>|<cell|Value>>|<row|<cell|Off>|<cell|0x0>>|<row|<cell|EAX>|<cell|0x1>>>>>>>>>>
 
