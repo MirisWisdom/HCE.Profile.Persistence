@@ -165,7 +165,7 @@
   <\cpp-code>
     unsigned int a = x / (2 ^ 8); // 2 ^ 8 = 256 or 0x100
 
-    unsigned int b = x % (2 ^ 8); // x = width or height!
+    unsigned int b = x % (2 ^ 8); // x = width (or height)
   </cpp-code>
 
   <\itemize>
@@ -184,46 +184,26 @@
   For example, 1920x1080 is represented in the blam.sav with the following
   values:
 
-  <\cpp-code>
-    unsigned int x = 1920; // width
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Width>|<cell|Height>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Code>|<cell|Dec>|<cell|Hex>>|<row|<cell|<cpp|int
+  a = 1920 / (2 ^ 8);>>|<cell|7>|<cell|07>>|<row|<cell|<cpp|int b = 1920 % (2
+  ^ 8);>>|<cell|128>|<cell|80>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Code>|<cell|Dec>|<cell|Hex>>|<row|<cell|<cpp|int
+  c = 1080 / (2 ^ 8);>>|<cell|04>|<cell|04>>|<row|<cell|<cpp|int d = 1080 %
+  (2 ^ 8);>>|<cell|56>|<cell|38>>>>>>>>>>
 
-    unsigned int y = 1080; // height
-
-    \;
-
-    unsigned int a = x / (2 ^ 8); // = 7
-
-    unsigned int b = x % (2 ^ 8); // = 128
-
-    \;
-
-    unsigned int c = y / (2 ^ 8); // = 4
-
-    unsigned int d = y % (2 ^ 8); // = 56
-  </cpp-code>
-
-  Therefore, in the binary file, the values would be stored in this manner:
-
-  <block*|<tformat|<cwith|1|1|4|4|cell-row-span|1>|<cwith|1|1|4|4|cell-col-span|2>|<cwith|1|1|2|2|cell-row-span|1>|<cwith|1|1|2|2|cell-col-span|2>|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Resolution>|<cell|Width>|<cell|>|<cell|Height>|<cell|>>|<row|<cell|Decimal>|<cell|128>|<cell|07>|<cell|56>|<cell|04>>|<row|<cell|Hexadecimal>|<cell|80>|<cell|07>|<cell|38>|<cell|04>>|<row|<cell|Formula>|<cell|x
-  % (2 ^ 8)>|<cell|x / (2 ^ 8)>|<cell|y % (2 ^ 8)>|<cell|y / (2 ^ 8)>>>>>
-
-  <new-page>
+  \;
 
   <subsubsection|Retrieval>
 
   To get back the values from the blam.sav with the two variables, the
-  following formula can be used: <cpp|unsigned int x = (a * (2 ^ 8)) + b>
+  following formula can be used: <cpp|unsigned int x = (a * (2 ^ 8)) + b;>
 
   To get 1920 and 1080 back, we should use 128 & 7 and 56 & 4, respectively:
 
-  <\cpp-code>
-    unsigned int x = (7 * (2 ^ 8)) + 128; // width of 1920
+  <tabular*|<tformat|<twith|table-width|1par>|<twith|table-hmode|exact>|<table|<row|<cell|Width>|<cell|Height>>|<row|<cell|<block*|<tformat|<table|<row|<cell|Code>|<cell|Result>>|<row|<cell|<cpp|int
+  x = (7 * (2 ^ 8)) + 128;>>|<cell|1920>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Code>|<cell|Result>>|<row|<cell|<cpp|int
+  y = (4 * (2 ^ 8)) + 56;>>|<cell|1080>>>>>>>>>>
 
-    unsigned int y = (4 * (2 ^ 8)) + 56; \ // height of 1080
-  </cpp-code>
-
-  Note that the values must be first converted to decimal from their
-  hexadecimal counterpart.
+  \;
 
   <subsubsection|Offsets>
 
