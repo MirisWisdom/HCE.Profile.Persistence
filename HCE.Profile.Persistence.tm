@@ -104,8 +104,8 @@
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-22>>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3.<space|2spc>Network>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3.<space|2spc>Network
+    Configuration> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-23><vspace|0.5fn>
 
     <with|par-left|1tab|3.1.<space|2spc>Connection Types
@@ -153,9 +153,28 @@
     <no-break><pageref|auto-34>>
   </table-of-contents>
 
+  <page-break>
+
   <section|Video Configuration>
 
   <subsection|Resolution>
+
+  You'd hope that I would intuit a simple concept such as the resolutions
+  being stored in the uint16 format, and be represented by a simple struct
+  which can easily be serialised:
+
+  <\cpp-code>
+    struct resolution {
+
+    \ \ \ \ int width;
+
+    \ \ \ \ int height;
+
+    }
+  </cpp-code>
+
+  Read below for an insight into what happens when you forget that a byte can
+  have a maximum value of 255.
 
   <subsubsection|Calculation>
 
@@ -188,9 +207,7 @@
   a = 1920 / (2 ^ 8);>>|<cell|7>|<cell|07>>|<row|<cell|<cpp|int b = 1920 % (2
   ^ 8);>>|<cell|128>|<cell|80>>>>>>|<cell|<block*|<tformat|<table|<row|<cell|Code>|<cell|Dec>|<cell|Hex>>|<row|<cell|<cpp|int
   c = 1080 / (2 ^ 8);>>|<cell|04>|<cell|04>>|<row|<cell|<cpp|int d = 1080 %
-  (2 ^ 8);>>|<cell|56>|<cell|38>>>>>>>>>>
-
-  \;
+  (2 ^ 8);>>|<cell|56>|<cell|38>>>>>>>>>><page-break>
 
   <subsubsection|Retrieval>
 
@@ -379,7 +396,7 @@
   Acceleration>|<cell|0x00000B7C>>|<row|<cell|Environmental
   Sound>|<cell|0x00000B7B>>>>>
 
-  <section|Network>
+  <section|Network Configuration>
 
   This section covers the network options, which include the connection type
   and server/client connection ports.
