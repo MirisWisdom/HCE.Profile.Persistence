@@ -159,16 +159,14 @@
 
   <subsection|Resolution>
 
-  You'd hope that I would intuit a simple concept such as the resolutions
-  being stored in the uint16 format, and be represented by a simple struct
-  which can easily be serialised:
+  The resolutions are stored in uint16_t variables:
 
   <\cpp-code>
     struct resolution {
 
-    \ \ \ \ int width;
+    \ \ \ \ uint16_t width;
 
-    \ \ \ \ int height;
+    \ \ \ \ uint16_t height;
 
     }
   </cpp-code>
@@ -418,9 +416,9 @@
   Ports are stored in uint16 variables with a maximum value of (2 ^ 16) - 1,
   or 65535.
 
-  Calculation and retrieval is done the exact same way as video resolutions.
-  For a more elaborate explanation of the formulae, check the Resolutions
-  subsection in the Video Configuration section.
+  Calculation and retrieval is done the exact same way as video resolutions,
+  in the uint16_t format. For a more elaborate explanation of the formulae,
+  check the Resolutions subsection in the Video Configuration section.
 
   <\itemize>
     <item>Calculation:
