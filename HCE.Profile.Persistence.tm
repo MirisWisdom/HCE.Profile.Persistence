@@ -5,7 +5,7 @@
 <\body>
   <\doc-data|<doc-title|Profile Persistence in HCE>|<doc-subtitle|Serialising
   the Blam.sav Binary>|<doc-author|<\author-data|<author-name|Emilian
-  Roman>|<author-homepage|<em|https://github.com/the-empress>>>
+  Roman>|<author-homepage|<em|https://github.com/yumiris>>>
     \;
 
     \;
